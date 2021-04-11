@@ -1,0 +1,40 @@
+<div class="card"  >
+    <div class="card-body">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/customers">Customers</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Customer </li>
+        </ol>
+      </nav>
+  
+    </div>
+    <div class="container-fluid row">
+      <form [formGroup]="CustomerForm"  class="col-md-5 offset-md-4">
+        <div class="form-group">
+            <label >Customer ID</label>
+            <input formControlName="id"     type="number" class="form-control"  >
+          </div>
+        <div class="form-group">
+          <label >Full Name</label>
+          <input formControlName="full_name"     type="text" class="form-control"  >
+        </div>
+        <div class="form-group">
+          <label >Email address</label>
+          <input formControlName="email"     type="email" class="form-control"  >
+        </div>
+        <div class="form-group">
+          <label >Gender</label>
+          <input formControlName="gender"     type="text" class="form-control"  >
+        </div>
+        <div class="form-group">
+          <label >Profile Url</label>
+          <input formControlName="profile"     type="text" class="form-control"  >
+        </div>
+        <div style="text-align: center;">
+        <a (click)="Back()"   class="btn btn-danger">Back</a>
+        <button type="submit" (click)="Add()"  [disabled]="!CustomerForm.valid" class="btn btn-primary">Add</button>
+      </div>
+      </form>
+      </div>
+  </div>

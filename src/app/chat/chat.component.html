@@ -1,0 +1,26 @@
+<div class="mesgs">
+  <div class="msg_history">
+    <div *ngFor="let message of messages">
+  <div *ngIf="message.from != currentUser" class="incoming_msg">
+    <div class="incoming_msg_img"> <img width="50px" src="https://ui-avatars.com/api/?name={{message.from}}&background=fff&color=02a9f4" alt="sunil"> </div>
+    <div class="received_msg">
+    <div class="received_withd_msg">
+      <span class="badge badge-success badge-pill">  {{ message.from }} </span>  <p>{{ message.message }}</p>
+      <span class="time_date"> {{ message.date | date:'short' }}    </span></div>
+    </div>
+  </div>
+  <div *ngIf="message.from == currentUser" class="outgoing_msg">
+    <div class="sent_msg">
+    <p>{{ message.message }}</p>
+    <span class="time_date"> {{ message.date | date:'short' }}   </span> </div>
+  </div>
+</div>
+
+  </div>
+  <div class="type_msg">
+  <div class="input_msg_write">
+    <input  type="text" [(ngModel)]="data.message" ng class="write_msg" placeholder="Type a message" />
+    <button [disabled]="data.message == ''" (click)="sendMessage()" class="msg_send_btn" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+  </div>
+  </div>
+</div>

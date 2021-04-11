@@ -1,0 +1,28 @@
+  <div class="card" *ngIf="isGrid()" >
+    
+    <img class="card-img-top" [src]="customer['profile']" alt="Card image" style="width:100%; height:125px;">
+    <div class="card-body">
+      <h4 class="card-title">{{customer['full_name']}}</h4>
+      <p class="card-text">{{customer['email']}}</p>
+      <a routerLink="/customer/{{customer['id']}}" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+  <div class="card" *ngIf="isList()" >
+    <div class="row">
+        <div class="col-4">
+            <img class="card-img-top" [src]="customer['profile']" alt="Card image" style="width:300px; height: 190px;">
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h1 class="card-title">{{customer['full_name']}}</h1>
+                <p class="card-text">{{customer['email']}}</p>
+              
+              </div>
+        </div>
+        <div class="col-2">
+            <div class="card-footer">
+            <a  routerLink="/customer/{{customer['id']}}" class="btn btn-primary">See Profile</a>
+            </div>
+        </div>
+      </div>
+  </div>

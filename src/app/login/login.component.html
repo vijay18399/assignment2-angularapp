@@ -1,0 +1,12 @@
+
+  <div  class="container-fluid">
+    <form [formGroup]="LoginForm"  (ngSubmit)="login()"  style="text-align: center;">
+
+  <div class="form-group">
+    <label >username</label>
+    <input type="text" formControlName="username"   >
+  </div>
+  
+  <button type="submit" [disabled]="!LoginForm.valid"  class="btn btn-primary">Login</button>
+</form>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label
+          (click)="ChangeTo('grid')"
+          class="btn btn-secondary   {{ isActive('grid') }} "
+        >
+          <input type="radio" name="options" id="option1" autocomplete="off" />
+          Grid
+        </label>
+        <label
+          (click)="ChangeTo('list')"
+          class="btn btn-secondary {{ isActive('list') }}"
+        >
+          <input type="radio" name="options" id="option2" autocomplete="off" />
+          List
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <a routerLink="/add-customer" class="btn btn-success">
+        <i class="fas fa-add"></i> Add Customer</a
+      >
+    </div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div *ngFor="let customer of customers" [ngClass]="setClass()">
+      <app-card [customer]="customer" [layout]="layout"></app-card>
+      <br />
+    </div>
+  </div>
+</div>
