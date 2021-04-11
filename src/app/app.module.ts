@@ -21,7 +21,7 @@ import { ChatSystemComponent } from './chat-system/chat-system.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
