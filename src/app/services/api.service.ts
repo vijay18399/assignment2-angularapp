@@ -48,7 +48,7 @@ export class ApiService {
     )
   }
   getMessages(): Observable<Message[]> {
-    return this.httpClient.get<Message[]>('http://localhost:3000' + '/messages/')
+    return this.httpClient.get<Message[]>('https://my-socket-api.herokuapp.com' + '/messages/')
     .pipe(
       catchError(this.errorHandler)
     )
