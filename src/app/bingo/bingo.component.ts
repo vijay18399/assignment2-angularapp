@@ -18,7 +18,7 @@ export class BingoComponent implements OnInit {
     return new Array(i);
 }
 PickOne(){
-  console.log(this.numbers);
+  
   if(this.numbers.length==100){
 this.status = true; 
   }
@@ -27,7 +27,7 @@ this.status = true;
     this.numbers.push(num);
     this.prev = this.current;
     this.current =num;
-    
+    console.log(this.numbers);
   }
 
 }

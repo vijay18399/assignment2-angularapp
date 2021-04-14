@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8">
       <div class="row">
-        <div *ngFor='let in of counter(100) ;let i = index' class="{{ setColor(i) }} rounded box col-md-1">{{i+1}}</div>
+        <div *ngFor='let in of counter(100) ;let i = index' class="{{ setColor(i+1) }} rounded box col-md-1">{{i+1}}</div>
       </div>
     </div>
     <div style="text-align: center;" class="col-2">
