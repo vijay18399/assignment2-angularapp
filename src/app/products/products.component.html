@@ -14,5 +14,5 @@
   </div>
 </div>
 <div *ngIf="openCart" class="row">
- <app-cart [price]=price  [cart]=cart ></app-cart>
+ <app-cart (GoBack)="Back($event)" [price]=price  [cart]=cart ></app-cart>
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder,Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home']);
       }
       else{
-        alert(response['message']);
+        Swal.fire('Oops...', 'Something went wrong!', 'error')
       }
       
 

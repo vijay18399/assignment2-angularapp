@@ -4,12 +4,13 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/customers">Customers</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Customer - {{ customer.full_name }}</li>
+        <li class="breadcrumb-item active" aria-current="page">Customer - {{ id }}</li>
       </ol>
     </nav>
 
   </div>
   <div class="container-fluid row">
+
     <form [formGroup]="CustomerForm"  class="col-md-5 offset-md-4">
       <div class="form-group">
         <label >Full Name</label>

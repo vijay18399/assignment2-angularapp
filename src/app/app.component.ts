@@ -31,6 +31,10 @@ export class AppComponent {
 {
   title :"Products",
   route :"products"
+},
+{
+  title :"My Resume",
+  route :"resume"
 }
   ];
 

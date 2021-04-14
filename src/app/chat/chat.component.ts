@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
@@ -12,8 +12,6 @@ import { Message } from '../interfaces/message';
 })
 export class ChatComponent implements OnInit {
   @Input() currentUser: string;
-  @Output() Typing = new EventEmitter<Object>();
-  @Output() NTyping = new EventEmitter<Object>();
   data = {
     from: '',
     message: '',

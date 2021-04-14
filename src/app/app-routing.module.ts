@@ -12,6 +12,7 @@ import {
 import { LoginComponent } from './login/login.component';
 import { ChatSystemComponent } from './chat-system/chat-system.component';
 import { ProductsComponent } from './products/products.component';
+import { ResumeComponent } from './resume/resume.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent , canActivate : [AuthGuard] },
   { path: "about", component: AboutComponent , canActivate : [AuthGuard] },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "customer/:id", component: CustomerComponent , canActivate : [AuthGuard] }, 
   { path: "add-customer", component: AddCustomerComponent, canActivate : [AuthGuard] },
   { path: "chat-system", component: ChatSystemComponent, canActivate : [AuthGuard] },
+  { path: "resume", component: ResumeComponent, canActivate : [AuthGuard] },
   { path: "orders", component: OrdersComponent , canActivate : [AuthGuard] },
   
   { path: "login", component: LoginComponent  },

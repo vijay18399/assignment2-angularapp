@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-users',
@@ -8,12 +9,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class UsersComponent implements OnInit {
   @Output() updateUser = new EventEmitter<string>();
   currentUser = '';
-  users=[
-    "vijay","ajay","gopal","puspa"
-  ];
-  constructor() { }
+  users=[ ];
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getUsers().subscribe((data) => {
+      console.log(data)
+      this.users = data;
+    });
   }
   changedTo(user){
     this.currentUser =user;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -14,38 +15,38 @@ products = [
   {
 	"name": "Product 1",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
+	"price": 11,
 	"info": "This is the latest and greatest product from Derp corp.",
-	"image": "http://placehold.it/300x300/999/CCC"
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 },{
 	"name": "Product 2",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
+	"price": 22,
 	"offer": "BOGOF",
-	"image": "http://placehold.it/300x300/999/CCC"
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 },{
 	"name": "Product 3",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
-	"image": "http://placehold.it/300x300/999/CCC"
+	"price": 39,
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 },{
 	"name": "Product 4",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
+	"price": 96,
 	"offer": "No srsly GTFO",
-	"image": "http://placehold.it/300x300/999/CCC"
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 },{
 	"name": "Product 5",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
-	"image": "http://placehold.it/300x300/999/CCC"
+	"price": 200,
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 },{
 	"name": "Product 6",
 	"detail": "Lorem ipsum dolor sit amet",
-	"price": 99,
+	"price": 899,
 	"info": "This is the latest and greatest product from Derp corp.",
 	"offer": "info with offer",
-	"image": "http://placehold.it/300x300/999/CCC"
+	"image": "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460"
 }];
   ngOnInit(): void {
   }
@@ -54,7 +55,7 @@ products = [
     let found =false
     for(let i=0; i<this.cart.length;i++){
      if(this.cart[i].name == product.name ){
-       alert("Product Already in Cart Increasing Quantity by 1")
+		Swal.fire('Oops...', 'Product Already in Cart Increasing Quantity by 1', 'error')
        found =true
        this.cart[i].quantity =  this.cart[i].quantity+1
      }
@@ -65,6 +66,10 @@ products = [
       this.cart.push(product)
     }
    
+  }
+  Back(cart:Array<[]>){
+	  this.cart = cart
+	  this.openCart =false;
   }
 
 }

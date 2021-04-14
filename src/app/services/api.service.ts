@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Customer } from '../interfaces/customer';
 import { Message } from '../interfaces/message';
 import { Order } from '../interfaces/order';
+import { User } from '../interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -43,6 +44,12 @@ export class ApiService {
 
   getAll(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.apiServer + '/api/customers')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.apiServer + '/api/users')
     .pipe(
       catchError(this.errorHandler)
     )

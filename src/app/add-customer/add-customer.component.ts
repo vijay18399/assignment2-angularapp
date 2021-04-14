@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-customer',
   templateUrl: './add-customer.component.html',
@@ -29,7 +29,7 @@ export class AddCustomerComponent implements OnInit {
   Add() {
     this.apiService.create(this.CustomerForm.value).subscribe((res) => {
       if (res['status']) {
-        alert('Customer Added Successfully');
+        Swal.fire('Customer Added Successfully', 'success')
         this.router.navigate(['/customer', res['data'].id]);
       }
     });

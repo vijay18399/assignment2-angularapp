@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { ApiService } from '../services/api.service';
 export class OrdersComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
+  
   Layout = "all";
   LayoutText = "Group By Customers"
   searchTerm ='';
@@ -29,5 +30,6 @@ export class OrdersComponent implements OnInit {
       this.LayoutText = "Group By Customers"
     }
   }
+ 
 
 }
