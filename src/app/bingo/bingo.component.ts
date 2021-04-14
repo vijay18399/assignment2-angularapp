@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bingo',
@@ -18,14 +18,16 @@ export class BingoComponent implements OnInit {
     return new Array(i);
 }
 PickOne(){
+  console.log(this.numbers);
   if(this.numbers.length==100){
 this.status = true; 
   }
   else{
     let num = this.RandomNumPicker();
+    this.numbers.push(num);
     this.prev = this.current;
     this.current =num;
-    this.numbers.push(num);
+    
   }
 
 }
