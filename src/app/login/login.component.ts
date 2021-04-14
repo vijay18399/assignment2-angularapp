@@ -28,7 +28,11 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home']);
       }
       else{
-        Swal.fire('Oops...', 'Something went wrong!', 'error')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+          });
       }
       
 

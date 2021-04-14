@@ -14,7 +14,12 @@ export class AuthGuardService implements CanActivate {
     if(this.authService.isAuthenticated()){
       return true;
     }
-    Swal.fire('You are Not Allowed Please set username', 'error');
+
+    Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'You are Not Allowed Please Set username'
+		  });
     this.route.navigate(['login']);
     return false;
   }

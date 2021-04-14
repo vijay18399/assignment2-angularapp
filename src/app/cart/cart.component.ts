@@ -19,6 +19,13 @@ export class CartComponent implements OnInit {
     this.GoBack.emit(this.cart);
   }
   Buy(){
-    Swal.fire('Tq For Buying');
+    Swal.fire({
+      icon: 'success',
+      title: 'Thank you',
+      text: 'for Buying'
+      });
+
+    this.cart = [];
+    this.GoBack.emit(this.cart);
   }
 }

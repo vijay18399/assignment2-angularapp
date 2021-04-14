@@ -55,7 +55,12 @@ products = [
     let found =false
     for(let i=0; i<this.cart.length;i++){
      if(this.cart[i].name == product.name ){
-		Swal.fire('Oops...', 'Product Already in Cart Increasing Quantity by 1', 'error')
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Product Already in Cart Increasing Quantity by 1'
+		  });
+	
        found =true
        this.cart[i].quantity =  this.cart[i].quantity+1
      }

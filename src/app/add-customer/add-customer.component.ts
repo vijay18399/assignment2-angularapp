@@ -28,7 +28,9 @@ export class AddCustomerComponent implements OnInit {
   }
   Add() {
     this.apiService.create(this.CustomerForm.value).subscribe((res) => {
+      console.log(res);
       if (res['status']) {
+        
         Swal.fire('Customer Added Successfully', 'success')
         this.router.navigate(['/customer', res['data'].id]);
       }

@@ -1,0 +1,16 @@
+.box{
+    background-color: #54a1ee;
+    border: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(61, 19, 4);
+    width: 65px;
+    height: 45px;
+    text-align: center;
+}
+.orange{
+    background-color: #07c1fa;
+}
+.green{
+    background-color: #e8eee4;
+}

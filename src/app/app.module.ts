@@ -23,6 +23,7 @@ import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ResumeComponent } from './resume/resume.component';
+import { BingoComponent } from './bingo/bingo.component';
 const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', options: {} };
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', opt
     ChatSystemComponent,
     ProductsComponent,
     CartComponent,
-    ResumeComponent
+    ResumeComponent,
+    BingoComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),

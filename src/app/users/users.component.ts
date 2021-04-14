@@ -10,9 +10,13 @@ export class UsersComponent implements OnInit {
   @Output() updateUser = new EventEmitter<string>();
   currentUser = '';
   users=[ ];
+  status = false;
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getMessages().subscribe((data) => {
+      this.status = true;
+    });
     this.apiService.getUsers().subscribe((data) => {
       console.log(data)
       this.users = data;

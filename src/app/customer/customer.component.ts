@@ -21,12 +21,13 @@ export class CustomerComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id']; 
       this.apiService.getById(this.id).subscribe((data) => {
+        console.log(data);
         this.customer = data;
         this.CustomerForm =  this.fb.group({
-          full_name:  [this.customer.full_name, Validators.required],
-          email:  [this.customer.email, Validators.required],
-          gender:  [this.customer.gender, Validators.required],
-          profile:  [this.customer.profile, Validators.required],
+          full_name:  [this.customer['full_name'], Validators.required],
+          email:  [this.customer['email'], Validators.required],
+          gender:  [this.customer['gender'], Validators.required],
+          profile:  [this.customer['profile'], Validators.required],
         });
       });
    });
@@ -42,7 +43,8 @@ export class CustomerComponent implements OnInit {
   Update(){
     console.log(this.CustomerForm['value'])
     this.apiService.update(this.id,this.CustomerForm['value']).subscribe(res => {
-     console.log(res);
+      this.customer=res['data'];
+     console.log(res['data']);
     });
     this.editMode =false;
     this.viewMode = true;
