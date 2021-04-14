@@ -1,0 +1,39 @@
+<div class="container-fluid">
+        <div class="form-row">
+          <div class="col">
+            <input [(ngModel)]="searchTerm"  type="text" class="form-control" placeholder="search text here">
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <select (change)="Change($event)" [(ngModel)]="category"  class="custom-select" required>
+                  
+                  <option  value="Title">Title</option>
+                  <option value="Genre">Genre</option>
+                  <option value="Director">Director</option>
+                  <option value="Year">Year</option>
+                </select>
+              
+              </div>
+          </div>
+
+        </div>
+
+<div class="container">
+    <div class="row">
+      <div *ngFor="let movie of movies | fieldfilter: searchTerm : category " class="col-sm">
+        <div class="card" style="width: 13rem;" >
+            <!-- <img  width="200px" height="200px" class="card-img-top" [src]=movie.Poster > -->
+            <div class="card-body">
+              <h4 class="card-title">{{movie.Title}}</h4>
+              <p class="card-text">
+                <span *ngIf="movie.Genre" class="badge badge-success badge-pill"> Genre : {{movie.Genre}} </span>
+                <span  *ngIf="movie.Year" class="badge badge-danger badge-pill"> Year : {{movie.Year}} </span>
+                <span  *ngIf="movie.Director" class="badge badge-warning badge-pill"> Director  : {{movie.Director}}</span>
+                </p>
+              <a [href]=movie.Link class="btn btn-primary">Know more</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

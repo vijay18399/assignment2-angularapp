@@ -37,6 +37,10 @@ export class AppComponent {
   route :"bingo"
 },
 {
+  title :"Movies",
+  route :"movies"
+},
+{
   title :"My Resume",
   route :"resume"
 }

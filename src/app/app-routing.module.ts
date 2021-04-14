@@ -14,6 +14,7 @@ import { ChatSystemComponent } from './chat-system/chat-system.component';
 import { ProductsComponent } from './products/products.component';
 import { ResumeComponent } from './resume/resume.component';
 import { BingoComponent } from './bingo/bingo.component';
+import { MoviesComponent } from './movies/movies.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent , canActivate : [AuthGuard] },
   { path: "about", component: AboutComponent , canActivate : [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "chat-system", component: ChatSystemComponent, canActivate : [AuthGuard] },
   { path: "resume", component: ResumeComponent, canActivate : [AuthGuard] },
   { path: "orders", component: OrdersComponent , canActivate : [AuthGuard] },
+  { path: "movies", component: MoviesComponent , canActivate : [AuthGuard] },
   { path: "bingo", component: BingoComponent , canActivate : [AuthGuard] },
   { path: "login", component: LoginComponent  },
   {

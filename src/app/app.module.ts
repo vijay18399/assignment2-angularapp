@@ -24,6 +24,8 @@ import { CartComponent } from './cart/cart.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ResumeComponent } from './resume/resume.component';
 import { BingoComponent } from './bingo/bingo.component';
+import { MoviesComponent } from './movies/movies.component';
+import { FieldfilterPipe } from './pipes/fieldfilter.pipe';
 const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', options: {} };
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', opt
     ProductsComponent,
     CartComponent,
     ResumeComponent,
-    BingoComponent
+    BingoComponent,
+    MoviesComponent,
+    FieldfilterPipe
   ],
   imports: [
     SocketIoModule.forRoot(config),
