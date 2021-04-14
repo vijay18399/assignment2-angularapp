@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 export class ProductsComponent implements OnInit {
 cart=[]
   constructor() { }
-  openCart =false;
+  opencart =false;
   price = 0;
 products = [
   {
@@ -74,7 +74,20 @@ products = [
   }
   Back(cart:Array<[]>){
 	  this.cart = cart
-	  this.openCart =false;
+	  this.opencart =false;
+  }
+  openCart(){
+	  if(this.cart.length ==0){
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Cart is Empty'
+		  });
+	  }
+	  else{
+		this.opencart = true;
+	  }
+    
   }
 
 }
