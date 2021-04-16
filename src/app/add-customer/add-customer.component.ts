@@ -9,8 +9,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-customer.component.css'],
 })
 export class AddCustomerComponent implements OnInit {
+  submitted=false;
+  genders =['male','female']
   CustomerForm = this.fb.group({
-    id: [, Validators.required],
     full_name: ['', Validators.required],
     email: ['', Validators.required],
     gender: ['', Validators.required],
@@ -23,17 +24,34 @@ export class AddCustomerComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {}
+  get cc() {
+    return this.CustomerForm.controls;
+  }
+  get stateGender() {
+    return this.CustomerForm.get(['gender']);
+  }
+  changeGender(e) {
+    this.stateGender.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
   Back() {
     this.router.navigate(['/customers']);
   }
   Add() {
-    this.apiService.create(this.CustomerForm.value).subscribe((res) => {
-      console.log(res);
-      if (res['status']) {
-        
-        Swal.fire('Customer Added Successfully', 'success')
-        this.router.navigate(['/customer', res['data'].id]);
-      }
-    });
+    this.submitted =true;
+    if(this.CustomerForm.valid){
+      this.apiService.create(this.CustomerForm.value).subscribe((res) => {
+        console.log(res);
+        if (res['status']) {
+          
+          Swal.fire('Customer Added Successfully', 'success')
+          this.router.navigate(['/customer', res['data'].id]);
+        }
+      });
+    }
+
+
+
   }
 }

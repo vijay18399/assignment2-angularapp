@@ -14,26 +14,63 @@
     <tr><td>Full name</td><td>{{ customer['full_name']}}</td></tr>
     <tr><td>Email</td><td>{{ customer['email']}}</td></tr>
     <tr><td>gender</td><td>{{ customer['gender']}}</td></tr>
-    <tr><td>profile</td><td>{{ customer['profile']}}</td></tr>
+    <tr><td>profile</td><td><img  *ngIf="CustomerForm.value['profile']" width="100px"  height="150px" [src]="CustomerForm.value['profile']"></td></tr>
   </table>
   </div>
-  <div  class="container-fluid row">
-    <form [formGroup]="CustomerForm"  *ngIf="!viewMode" class="col-md-5 offset-md-4">
+  <div *ngIf="!viewMode"  class="container-fluid row">
+    <div style="text-align: center;" class="col-md-4">
+      <h5> Profile Preview</h5>
+ <img  *ngIf="CustomerForm.value['profile']" width="100px"  height="250px" [src]="CustomerForm.value['profile']">
+    </div>
+    <form [formGroup]="CustomerForm"   class="col-md-5 ">
       <div class="form-group">
         <label >Full Name</label>
-        <input formControlName="full_name"   [readonly]="viewMode"   type="text" class="form-control"  >
+        <input formControlName="full_name"     type="text" class="form-control"  >
+        <div
+        *ngIf="submitted && cc.full_name.errors"
+        class="alert alert-warning"
+      >
+        <div *ngIf="cc.full_name.errors.required">Full name is required</div>
+      </div>
       </div>
       <div class="form-group">
         <label >Email address</label>
-        <input formControlName="email"   [readonly]="viewMode"   type="email" class="form-control"  >
+        <input formControlName="email"     type="email" class="form-control"  >
+        <div
+        *ngIf="submitted && cc.email.errors"
+        class="alert alert-warning"
+      >
+        <div *ngIf="cc.email.errors.required">Email is required</div>
+      </div>
       </div>
       <div class="form-group">
         <label >Gender</label>
-        <input formControlName="gender"   [readonly]="viewMode"   type="text" class="form-control"  >
+        <select
+        class="custom-select"
+        (change)="changeGender($event)"
+        formControlName="gender"
+      >
+        <option value="" disabled>Select Gender</option>
+        <option *ngFor="let gender of genders" [value]="gender">
+          {{ gender }}
+        </option>
+      </select>
+        <div
+        *ngIf="submitted && cc.gender.errors"
+        class="alert alert-warning"
+      >
+        <div *ngIf="cc.gender.errors.required">Gender is required</div>
+      </div>
       </div>
       <div class="form-group">
         <label >Profile Url</label>
-        <input formControlName="profile"   [readonly]="viewMode"   type="text" class="form-control"  >
+        <input formControlName="profile"     type="text" class="form-control"  >
+        <div
+        *ngIf="submitted && cc.profile.errors"
+        class="alert alert-warning"
+      >
+        <div *ngIf="cc.profile.errors.required">Profile URL is required</div>
+      </div>
       </div>
      
     </form>
@@ -41,7 +78,7 @@
     <div style="text-align: center;" >
       <button (click)="Edit()" *ngIf="viewMode"  class="btn btn-primary">Edit</button>
       <button (click)="Back()" *ngIf="viewMode"  class="btn btn-danger">Back</button>
-      <button type="submit" [disabled]="!CustomerForm['valid']" (click)="Update()" *ngIf="editMode"  class="btn btn-primary">Update</button>
+      <button type="submit"  (click)="Update()" *ngIf="editMode"  class="btn btn-primary">Update</button>
     </div>
 
 </div>

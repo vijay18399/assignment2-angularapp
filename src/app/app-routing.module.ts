@@ -15,6 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { ResumeComponent } from './resume/resume.component';
 import { BingoComponent } from './bingo/bingo.component';
 import { MoviesComponent } from './movies/movies.component';
+import { DformsComponent } from './dforms/dforms.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent , canActivate : [AuthGuard] },
   { path: "about", component: AboutComponent , canActivate : [AuthGuard] },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "orders", component: OrdersComponent , canActivate : [AuthGuard] },
   { path: "movies", component: MoviesComponent , canActivate : [AuthGuard] },
   { path: "bingo", component: BingoComponent , canActivate : [AuthGuard] },
+  { path: "dynamic-forms", component: DformsComponent , canActivate : [AuthGuard] },
   { path: "login", component: LoginComponent  },
   {
     path: "", component: HomeComponent , canActivate : [AuthGuard] 

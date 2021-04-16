@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../interfaces/customer';
 import { ApiService } from '../services/api.service';
@@ -12,9 +12,11 @@ import { ApiService } from '../services/api.service';
 export class CustomerComponent implements OnInit {
   editMode = false;
   viewMode = true;
+  submitted=false;
   id: number;
   customer : Customer;
-  CustomerForm :Object;
+  CustomerForm :FormGroup;
+  genders =['male','female']
   constructor(private fb: FormBuilder,private apiService: ApiService,private route: ActivatedRoute, private router: Router) {
   }
   ngOnInit() {
@@ -32,6 +34,17 @@ export class CustomerComponent implements OnInit {
       });
    });
   }
+  get stateGender() {
+    return this.CustomerForm.get(['gender']);
+  }
+  changeGender(e) {
+    this.stateGender.setValue(e.target.value, {
+      onlySelf: true,
+    });
+  }
+  get cc() {
+    return this.CustomerForm.controls;
+  }
   Back(){
     this.router.navigate(['/customers']);
   }
@@ -41,13 +54,17 @@ export class CustomerComponent implements OnInit {
     this.viewMode = false;
   }
   Update(){
+    this.submitted =true;
     console.log(this.CustomerForm['value'])
-    this.apiService.update(this.id,this.CustomerForm['value']).subscribe(res => {
-      this.customer=res['data'];
-     console.log(res['data']);
-    });
-    this.editMode =false;
-    this.viewMode = true;
+    if(this.CustomerForm.valid){
+      this.apiService.update(this.id,this.CustomerForm['value']).subscribe(res => {
+        this.customer=res['data'];
+       console.log(res['data']);
+      });
+      this.editMode =false;
+      this.viewMode = true;
+    }
+ 
   }
 
 

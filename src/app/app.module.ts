@@ -26,6 +26,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { BingoComponent } from './bingo/bingo.component';
 import { MoviesComponent } from './movies/movies.component';
 import { FieldfilterPipe } from './pipes/fieldfilter.pipe';
+import { DformsComponent } from './dforms/dforms.component';
 const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', options: {} };
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ const config: SocketIoConfig = { url: 'https://my-socket-api.herokuapp.com', opt
     ResumeComponent,
     BingoComponent,
     MoviesComponent,
-    FieldfilterPipe
+    FieldfilterPipe,
+    DformsComponent
   ],
   imports: [
     SocketIoModule.forRoot(config),
