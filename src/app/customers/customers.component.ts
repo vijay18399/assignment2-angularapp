@@ -12,7 +12,9 @@ export class CustomersComponent implements OnInit {
   constructor(private apiService: ApiService) { }
   ngOnInit(): void {
     this.apiService.getAll().subscribe((data: Customer[]) => {
+      
       this.customers = data;
+      console.log(this.customers);
     });
   }
   layout = 'list';

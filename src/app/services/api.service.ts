@@ -12,8 +12,8 @@ import { User } from '../interfaces/user';
 })
 export class ApiService {
 
-    private apiServer = "https://mydummy-flask-api.herokuapp.com";
-  //  private apiServer = "http://127.0.0.1:5000";
+   // private apiServer = "https://mydummy-flask-api.herokuapp.com";
+  private apiServer = "http://127.0.0.1:5000";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
